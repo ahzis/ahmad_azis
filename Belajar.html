@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Kalkulator</title>
+	<style type="text/css">
+		body{
+			background: black;
+			text-align: center;
+			font-family: Arial,  sans-serif;
+		}
+		.Kalkulator{
+			width: 250px;
+			background: gold;
+			padding: 20px;
+			margin: 50px auto;
+			border-radius: 10px;
+		}
+		.tampilan{
+			width: 100%;
+			height: 50px;
+			background: blue;
+			padding: 1px;
+			border: none;
+			border-radius: 5px;
+			color: white;
+			font-size: 20px;
+			text-align: right;
+
+		}
+		.button{
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 5px;
+			margin-top: 10px;
+		}
+		button{
+			width: 100%;
+			height: 50px;
+			font-size: 18px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			background: gold;
+			color: white;
+		}
+		.hapus{
+			background: blue;
+		}
+		.samadengan{
+			background: green;
+		}
+		.hapus-satu{
+			background: pink;
+		}
+	</style>
+</head>
+<body>
+<div class="Kalkulator">
+	<input type="text" class="tampilan" id="tampilan" disabled>
+	<div class="button">
+		<button class="hapus" onclick="hapussemua()">C</button>
+		<button class="hapus-satu" onclick="hapusSatu()">Del</button>
+		<button onclick="tambahNilai('0')">0</button>
+		<button onclick="tambahNilai('*')">x</button>
+
+		<button onclick="tambahNilai('1')">1</button>
+		<button onclick="tambahNilai('2')">2</button>
+		<button onclick="tambahNilai('3')">3</button>
+		<button onclick="tambahNilai('/')">/</button>
+
+		<button onclick="tambahNilai('4')">4</button>
+		<button onclick="tambahNilai('5')">5</button>
+		<button onclick="tambahNilai('6')">6</button>
+		<button onclick="tambahNilai('+')">+</button>
+
+		<button onclick="tambahNilai('7')">7</button>
+		<button onclick="tambahNilai('8')">8</button>
+		<button onclick="tambahNilai('9')">9</button>
+		<button onclick="tambahNilai('-')">-</button>
+
+		<button onclick="tambahNilai('00')">00</button>
+		<button class="samadengan" onclick="hitunghasil()">=</button>
+
+	</div>
+</div>
+<script>
+	function tambahNilai(value){
+		document.getElementById('tampilan').value += value;
+	}
+	function hapussemua(){
+		document.getElementById('tampilan').value = "";
+	}
+	function hapusSatu() {
+		let display = document.getElementById('tampilan');
+		tampilan.value = tampilan.value.slice(0, -1); // Menghapus satu karakter terakhir
+	}
+	function hitunghasil(){
+	try{
+		document.getElementById("tampilan").value =
+		eval(document.getElementById("tampilan").value)
+	}catch(e) {
+		alert("input tidak valid")
+	}
+}
+
+</script>
+</body>
+</html>
